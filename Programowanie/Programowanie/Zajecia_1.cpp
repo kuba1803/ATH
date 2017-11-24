@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cmath>
 #include <stack>
+#include <string>
 using namespace std;
 void z_1()
 {
@@ -102,7 +103,7 @@ void z_6_b() {
 	cout << endl;
 }
 // NIe wiem czemu cin nie wspolga ze stringiem;
-/*void z_6_c()
+void z_6_c()
 {
 	int wynik = 0;
 	string liczba;
@@ -113,7 +114,7 @@ void z_6_b() {
 		wynik *= 16;
 	}
 	cout << wynik;
-}*/
+}
 void z_7()
 {
 	int n,wynik=0;
@@ -147,6 +148,89 @@ void  z_10() {
 	for (int i = 1; i <= 10; i++) {
 		cout << "wynik dla x = " << i << " wynosi : " << sqrt(i + 2) / 4 - exp(3 * i + M_PI_2) << endl;
 	}
+}
+void z_11_a(){
+	double x, y;
+	cin >> x >> y;
+	double p1=0, p2=1;
+	for (int i = 1; i <= 10; i++) {
+		p1 += sin(x) / 3;
+	}
+	for (int i = 3; i >= -2; i--) {
+		p2 *= sqrt(x + 2 * y);
+	}
+	cout << p1 + p2 + exp(3 * x + M_PI_2) << endl;;
+}
+void z_11_b() {
+	double x, y;
+	cin >> x >> y;
+	double p1 = 0, p2 = 1;
+	for (int i = -1; i >= -4; i--) {
+		p1 += 1/tan(i*x);
+	}
+	for (int i = 10; i >= 3; i--) {
+		p2 *= exp(abs(x));
+	}
+	cout << p1 + p2 << endl;;
+}
+void z_11_c() {
+	double x, y;
+	cin >> x >> y;
+	double p1 = 1, p2 = 1,p3=0;
+	for (int i = 3; i >= -2; i--) {
+		p1 += sqrt((x+y)/(log(abs(i+10))));
+	}
+	for (int i = 1; i >= -4; i--) {
+		p2 *= sqrt(x/2+pow(y,x));
+	}
+	for (int i = 1; i >= -4; i--) {
+		p3 += tan(i);
+	}
+	cout << p1 - p2 + p3 - x << endl;;
+}
+void z_11_a() {
+	double x, y;
+	cin >> x >> y;
+	double wyn_zew = 1, wyn_wew = 0;
+	for (int i = -2; i <= 3; i++){
+		wyn_wew = 0;
+		for (int j = 1; j <= 5; j++) {
+			wyn_wew += tan(2 * pow(x, i + j) + j*y) + (log(abs(pow(2, j)*x + 1))) / (2 * y + 10 * i) + pow(x*y*pow(j, i), 1 / 3.);
+		}
+		wyn_zew *= wyn_wew;
+	}
+	cout << wyn_zew;
+}
+void z_11_b() {
+	double x, y;
+	cin >> x >> y;
+	double wyn_zew = 0, wyn_wew = 1;
+	for (int i = -3; i >= -5; i--) {
+		wyn_wew = 1;
+		for (int j = 3; j >= -1; j--) {
+			wyn_wew *= log2(x+i*j);
+		}
+		wyn_zew += wyn_wew;
+	}
+	cout << wyn_zew+log(3*y)+pow(x+y*exp(exp(x+2)+10),1/3.);
+}
+void z_11_c() {
+	double x, y;
+	cin >> x >> y;
+	double wyn_zew = 0, wyn_wew = 1;
+	for (int i = -3; i >= -5; i--) {
+		wyn_wew = 1;
+		for (int j = 3; j >= -1; j--) {
+			double wyn_temp = 0;
+			for (int k = 1; k <= 10; k++)
+			{
+				wyn_temp += (k*sin(x)) / 3;
+			}
+			wyn_wew *= log(i*j)-sqrt(M_PI)+wyn_temp;
+		}
+		wyn_zew += wyn_wew;
+	}
+	cout << wyn_zew;
 }
 int main() {
 
